@@ -1,38 +1,32 @@
-Airbnb Price Prediction: An Overview (AB_NYC_2019 Dataset)
-The AB_NYC_2019 dataset contains information about Airbnb listings in New York City, including details about prices, locations, and host characteristics. The goal is to predict rental prices based on available features.
+Data Cleaning Overview for AB_NYC_2019 Dataset
+The AB_NYC_2019 dataset contains Airbnb listings in New York City, including details about pricing, location, host information, and reviews. Cleaning this dataset is essential for accurate analysis and machine learning models.
 
-Dataset Overview (AB_NYC_2019)
-Features include:
+Key Data Cleaning Steps:
+Handling Missing Values:
 
-Listing details: Name, room type, neighborhood
-Location: Borough (Manhattan, Brooklyn, etc.), latitude & longitude
-Host details: Host ID, number of listings per host
-Pricing & availability: Price, number of reviews, availability over the year
-Target Variable:
+Identify missing values using .isnull().sum()
+Fill missing values with appropriate techniques:
+Mean/median for numerical columns (e.g., reviews_per_month)
+Mode or "Unknown" for categorical columns (e.g., host_name)
+Drop columns with excessive missing data if needed
+Handling Duplicates:
 
-Price (continuous variable) – predicting this is a regression problem
-Prediction Approach
-1. Data Preprocessing
-Handling missing values (e.g., filling missing prices or dropping irrelevant columns)
-Converting categorical variables (e.g., one-hot encoding for neighborhood and room type)
-Removing outliers (e.g., extremely high or low prices)
-Normalizing features (e.g., standardizing numerical values)
-2. Exploratory Data Analysis (EDA)
-Distribution of prices across different neighborhoods
-Correlation between features (e.g., does room type influence price?)
-Visualizing trends using heatmaps, histograms, and scatter plots
-3. Model Selection
-Common regression models for price prediction:
+Remove duplicate rows using .drop_duplicates()
+Fixing Data Types:
 
-Linear Regression
-Random Forest Regressor
-Gradient Boosting (XGBoost, LightGBM)
-Neural Networks (for advanced cases)
-4. Model Evaluation
-Metrics used for regression problems:
-Mean Absolute Error (MAE)
-Mean Squared Error (MSE)
-R² Score (to measure variance explained by the model)
+Convert last_review to datetime format (pd.to_datetime())
+Ensure numerical columns are correctly formatted
+Outlier Detection & Removal:
+
+Detect extreme values in price using boxplots
+Remove unrealistic prices (e.g., listings with price = 0 or extremely high values)
+Standardizing Text Data:
+
+Convert text to lowercase for consistency
+Remove unnecessary white spaces
+Encoding Categorical Variables (if needed for ML):
+
+Convert categorical variables (neighbourhood_group, room_type) into numerical format using one-hot encoding or label encoding
 
 Conclusion
-Predicting Airbnb prices helps hosts optimize their listings and allows travelers to find affordable stays. By applying machine learning, we can identify key factors that influence pricing and make data-driven recommendations.
+Cleaning the AB_NYC_2019 dataset ensures higher data quality, leading to more accurate analysis and predictions.
