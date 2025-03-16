@@ -1,4 +1,3 @@
-Data Cleaning Overview for AB_NYC_2019 Dataset
 The AB_NYC_2019 dataset contains Airbnb listings in New York City, including details about pricing, location, host information, and reviews. Cleaning this dataset is essential for accurate analysis and machine learning models.
 
 Key Data Cleaning Steps:
